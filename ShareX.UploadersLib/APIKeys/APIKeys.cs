@@ -37,6 +37,7 @@ namespace ShareX.UploadersLib
         public static readonly string FlickrSecret = "";
         public static readonly string PhotobucketConsumerKey = "";
         public static readonly string PhotobucketConsumerSecret = "";
+        public static readonly string RedditSecret = "";
 
         // Text uploaders
         public static readonly string PastebinKey = "";

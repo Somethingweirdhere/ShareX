@@ -56,6 +56,12 @@ namespace ShareX.UploadersLib
 
         #endregion ImageShack
 
+        #region Reddit
+
+        public RedditOptions RedditSettings = new RedditOptions();
+
+        #endregion Reddit
+
         #region TinyPic
 
         public AccountType TinyPicAccountType = AccountType.Anonymous;
@@ -99,6 +105,12 @@ namespace ShareX.UploadersLib
         public string VgymeUserKey = "";
 
         #endregion vgy.me
+
+        #region Reddit
+
+        public OAuthInfo RedditOAuthInfo = null;
+
+        #endregion
 
         #endregion Image uploaders
 

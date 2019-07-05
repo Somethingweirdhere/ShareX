@@ -232,6 +232,7 @@
     <Compile Include="Helpers\OCROptions.cs" />
     <Compile Include="Helpers\ResponseInfo.cs" />
     <Compile Include="Helpers\RequestHelpers.cs" />
+    <Compile Include="ImageUploaders\Reddit.cs" />
     <Compile Include="OAuth\GoogleOAuth2.cs" />
     <Compile Include="OAuth\IOAuthBase.cs" />
     <Compile Include="OAuth\OAuth2ProofKey.cs" />

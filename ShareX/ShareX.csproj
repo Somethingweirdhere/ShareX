@@ -1602,6 +1602,9 @@
   <ItemGroup>
     <None Include="Resources\ui-thumbnail-title.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Reddit.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

@@ -43,6 +43,8 @@ namespace ShareX.UploadersLib
         Photobucket,
         [Description("Google Photos")]
         Picasa,
+        [Description("Reddit")]
+        Reddit,
         [Description("Twitter")]
         Twitter,
         [Description("Chevereto")]

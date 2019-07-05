@@ -189,6 +189,13 @@ namespace ShareX.UploadersLib
 
             #endregion ImageShack
 
+            #region Reddit
+
+            txtImageShackUsername.Text = Config.RedditSettings.Username;
+            txtImageShackPassword.Text = Config.RedditSettings.Password;
+
+            #endregion Reddit
+
             #region TinyPic
 
             atcTinyPicAccountType.SelectedAccountType = Config.TinyPicAccountType;
@@ -976,6 +983,54 @@ namespace ShareX.UploadersLib
         }
 
         #endregion ImageShack
+
+        #region Reddit
+
+        private void txtRedditUsername_TextChanged(object sender, EventArgs e)
+        {
+            Config.RedditSettings.Username = txtRedditUsername.Text;
+        }
+
+        private void txtIRedditPassword_TextChanged(object sender, EventArgs e)
+        {
+            Config.RedditSettings.Password = txtRedditPassword.Text;
+        }
+
+        private void btnRedditLogin_Click(object sender, EventArgs e)
+        {
+            ImageShackUploader imageShackUploader = new ImageShackUploader(APIKeys.ImageShackKey, Config.ImageShackSettings);
+
+            try
+            {
+                if (imageShackUploader.GetAccessToken())
+                {
+                    MessageBox.Show(Resources.UploadersConfigForm_Login_successful, "ShareX", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(Resources.UploadersConfigForm_Login_failed, "ShareX", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                DebugHelper.WriteException(ex);
+                ex.ShowError();
+            }
+        }
+
+        private void btnRedditOpenProfile_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Config.RedditSettings.Username))
+            {
+                URLHelpers.OpenURL("https://imageshack.com/user/" + Config.ImageShackSettings.Username);
+            }
+            else
+            {
+                txtImageShackUsername.Focus();
+            }
+        }
+
+        #endregion Reddit
 
         #region TinyPic
 
@@ -3375,5 +3430,1525 @@ namespace ShareX.UploadersLib
         #endregion Twitter
 
         #endregion Other uploaders
+
+        private void tcImageUploaders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtRapidSharePremiumUserName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ttHelpTip_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void tpOtherUploaders_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tcOtherUploaders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpTwitter_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTwitterDefaultMessage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void oauthTwitter_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTwitterDescription_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTwitterDescription_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpURLShorteners_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tcURLShorteners_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpBitly_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblBitlyDomain_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void oauth2Bitly_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpYourls_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblYourlsNote_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblYourlsPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblYourlsUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblYourlsSignature_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblYourlsAPIURL_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpAdFly_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAdflyAPIUID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAdflyAPIKEY_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpPolr_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPolrAPIKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPolrAPIHostname_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpFirebaseDynamicLinks_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFirebaseDomainExample_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFirebaseDomain_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFirebaseWebAPIKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpKutt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblKuttPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblKuttAPIKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblKuttHost_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpFileUploaders_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tcFileUploaders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpFTP_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbFTPAccount_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbSFTP_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSFTPKeyPassphrase_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSFTPKeyLocation_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFTPProtocol_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFTPName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFTPHost_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void eiFTP_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pFTPTransferMode_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pFTPProtocol_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblFTPPort_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFTPTransferMode_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFTPURLPreviewValue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFTPUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFTPURLPreview_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFTPPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFTPURLPath_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFTPRemoteDirectory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbFTPS_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFTPSCertificateLocation_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFTPSEncryption_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFTPAccounts_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFTPFile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFTPText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFTPImage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpDropbox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDropboxPath_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void oauth2Dropbox_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpOneDrive_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblOneDriveFolderID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void oAuth2OneDrive_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpGoogleDrive_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGoogleDriveFolderID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void oauth2GoogleDrive_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpPuush_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPuushAPIKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPuushPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPuushEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPuushEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPuushPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblBoxFolderTip_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblBoxFolderID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void oauth2Box_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpAmazonS3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbAmazonS3Advanced_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAmazonS3StripExtension_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAmazonS3StorageClass_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAmazonS3Endpoint_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAmazonS3Region_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAmazonS3PathPreviewLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAmazonS3PathPreview_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAmazonS3BucketName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAmazonS3Endpoints_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAmazonS3ObjectPrefix_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAmazonS3SecretKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAmazonS3AccessKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpGoogleCloudStorage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbGoogleCloudStorageAdvanced_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGoogleCloudStorageStripExtension_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGoogleCloudStoragePathPreview_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGoogleCloudStoragePathPreviewLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGoogleCloudStorageObjectPrefix_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGoogleCloudStorageDomain_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGoogleCloudStorageBucket_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void oauth2GoogleCloudStorage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpAzureStorage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAzureStorageURLPreview_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAzureStorageURLPreviewLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAzureStorageUploadPath_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAzureStorageEnvironment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAzureStorageContainer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAzureStorageAccessKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAzureStorageAccountName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAzureStorageCustomDomain_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpBackblazeB2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtB2UrlPreview_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblB2UrlPreview_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblB2Bucket_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblB2UploadPath_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblB2ApplicationKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblB2ApplicationKeyId_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpGfycat_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void oauth2Gfycat_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpMega_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMegaStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMegaFolder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMegaStatusTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMegaEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMegaEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMegaPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMegaPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpOwnCloud_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblOwnCloudExpiryTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblOwnCloudHostExample_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblOwnCloudPath_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblOwnCloudPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblOwnCloudUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblOwnCloudHost_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpMediaFire_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMediaFirePath_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMediaFirePassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMediaFireEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpPushbullet_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPushbulletDevices_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPushbulletUserKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpSendSpace_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSendSpacePassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSendSpaceUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpGe_tt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGe_ttStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGe_ttPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGe_ttEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtGe_ttPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtGe_ttEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpHostr_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblLocalhostrPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblLocalhostrEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpJira_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblJiraIssuePrefix_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbJiraServer_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtJiraConfigHelp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblJiraHost_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void oAuthJira_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpLambda_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblLambdaApiKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblLambdaUploadURL_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpTeknik_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTeknikExpiration_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTeknikUrlShortenerAPIUrl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTeknikPasteAPIUrl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTeknikAuthUrl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTeknikUploadAPIUrl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void oauthTeknik_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpPomf_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPomfResultURL_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPomfUploadURL_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpSeafile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbSeafileAPIURL_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grpSeafileShareSettings_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSeafileSharePassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSeafileDaysToExpire_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSeafileLibraryPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSeafileWritePermNotif_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSeafilePath_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSeafileSelectLibrary_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grpSeafileAccInfo_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSeafileAccInfoUsage_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSeafileAccInfoEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSeafileAccInfoEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSeafileAccInfoUsage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grpSeafileObtainAuthToken_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSeafilePassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSeafileUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSeafileUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSeafilePassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSeafileAuthToken_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSeafileAPIURL_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpStreamable_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblStreamableUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblStreamablePassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpSul_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSulAPIKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpLithiio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLithiioPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLithiioEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblLithiioPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblLithiioEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblLithiioApiKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpPlik_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbPlikSettings_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbPlikLoginCredentials_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPlikTTL_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPlikURL_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPlikAPIKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPlikPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPlikUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpYouTube_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblYouTubePrivacyType_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void oauth2YouTube_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpSharedFolder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pgSharedFolderAccount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSharedFolderFiles_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSharedFolderText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSharedFolderImages_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEmailSmtpServer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEmailPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEmailFrom_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEmailDefaultSubject_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEmailDefaultBody_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEmailSmtpPort_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCopyShowFiles_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpTextUploaders_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tcTextUploaders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpPastebin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPastebinSyntax_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPastebinExpiration_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPastebinPrivacy_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPastebinTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPastebinPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPastebinUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPastebinLoginStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpPaste_ee_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPaste_eeUserAPIKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpGist_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGistCustomURLExample_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGistOAuthInfo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGistCustomURL_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void oAuth2Gist_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpUpaste_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblUpasteUserKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpHastebin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblHastebinSyntaxHighlighting_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblHastebinCustomDomain_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpOneTimeSecret_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblOneTimeSecretAPIKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblOneTimeSecretEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpPastie_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpImageUploaders_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpImgur_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void oauth2Imgur_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblImgurThumbnailType_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpImageShack_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblImageShackUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblImageShackPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpTinyPic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTinyPicPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTinyPicUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpFlickr_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void oauthFlickr_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpPhotobucket_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbPhotobucketAlbumPath_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbPhotobucketAlbums_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPhotobucketNewAlbumName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPhotobucketParentAlbumPath_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPhotobucketNewAlbumName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPhotobucketParentAlbumPath_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbPhotobucketUserAccount_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPhotobucketDefaultAlbumName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPhotobucketDefaultAlbumName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPhotobucketVerificationCode_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPhotobucketVerificationCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPhotobucketAccountStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpGooglePhotos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGooglePhotosCreateAlbumName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtGooglePhotosCreateAlbumName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPicasaAlbumID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void oauth2Picasa_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpChevereto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCheveretoUploadURLExample_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCheveretoUploadURL_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCheveretoAPIKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpVgyme_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lvlVgymeUserKey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tcUploaders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblWidthHint_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ttlvMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void actRapidShareAccountType_AccountTypeChanged(AccountType accountType)
+        {
+
+        }
+
+        private void tpReddit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
